@@ -1,0 +1,273 @@
+@import "variables.scss";
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--primary-color);
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.danger {
+    color: var(--danger-color);
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(165deg, rgba(240,240,241,1) 0%, rgba(116,130,139,1) 100%);
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    margin: var(--container-margin-top) var(--container-margin-right) var(--container-margin-bottom) var(--container-margin-left);
+    padding: 1rem;
+}
+
+.shadow {
+    box-shadow: 10px 10px 5px 5px darkgray;
+    background-color: var(--secondary-color);
+}
+
+.header {
+    margin: 2rem 4rem;
+}
+
+.navbar {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.navbar-item {
+    display: inline;
+    font-size: 1.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navbar-item:hover {
+    background-color: var(--tertiary-color);
+}
+
+.navbar-item, a {
+    text-decoration: none;
+}
+
+.table-view {
+    .table-view-header {
+        width: 100%;
+        vertical-align: middle;
+
+        h2 {
+            display: inline-block;
+            width: 50%;
+        }
+
+        .table-view-header-button-wrapper {
+            display: inline-block;
+            width: 50%;
+
+            button {
+                background-color: white;
+                border: 0px solid var(--tertiary-color);
+                color: var(--primary-color);
+                font-size: 2rem;
+                border-radius: 0.5rem;
+                margin-left: 90%;
+    
+                &:hover {
+                    box-shadow: 0 0 5px #999;
+                    border: 0px solid var(--secondary-color);
+                    background-color: white;
+                    color: var(--primary-color);
+                }
+            }
+        }
+    }
+
+    
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: black;
+    background-color:  var(--secondary-color);
+    border-style: solid;
+    border-color: var(--primary-color);
+    border-width: .1rem;
+
+    th {
+        border-top: none;
+    }
+    
+    td {
+        padding: 1rem;
+        vertical-align: top;
+        border-top: .1rem solid var(--table-fill-color);
+    }    
+      
+    thead th {
+        vertical-align: bottom;
+        border-bottom: (2 * .1rem) solid var(--table-fill-color);
+    }
+}
+
+button {
+    margin: 0 .2rem;
+    font-size: 1.2rem;
+    padding: .2rem 1rem;
+    margin: 0 .2rem;
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.submit-button {
+    background-color: var(--good-color);
+    color: white;
+    border: solid .2rem var(--good-color);
+
+    &:hover {
+        background-color: white;
+        color: var(--good-color);
+        border: solid .2rem var(--good-color);
+    }
+}
+
+.warning-button {
+    background-color: var(--warning-color);
+    border: solid .2rem var(--warning-color);
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: var(--warning-color);
+        border: solid .2rem var(--warning-color);
+    }
+}
+
+.edit-button {
+    background-color: var(--warning-color);
+    border: solid .2rem var(--warning-color);
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: var(--warning-color);
+        border: solid .2rem var(--warning-color);
+    }
+}
+
+.danger-button {
+    background-color: var(--danger-color);
+    border: solid .2rem var(--danger-color);
+    color: white;
+
+    &:hover {
+        background-color: white;
+        color: var(--danger-color);
+        border: solid .2rem var(--danger-color);
+    }
+}
+
+.button-link {
+    font-size: 1rem;
+    border: none;
+    background-color: var(--secondary-color);
+    color: blue;
+    text-decoration: underline;
+}
+
+.instance-view {
+    display: block;
+    margin: auto;
+    width: 50%;
+
+    .instance-view-header {
+        .instance-view-header-h2 {
+            display: inline-block;
+            width: 50%;
+        }
+
+        .instance-view-header-button-group {
+            display: inline-block;
+            width: 50%;
+        }
+    }
+
+    .view-field {
+        display: block;
+        width: 100%;
+    
+        .view-field-label {
+            display: inline-block;
+            width: 30%;
+    
+            label {
+                font-weight: bold;
+            }
+        }
+    
+        .view-field-value {
+            display: inline-block;
+            width: 70%;
+    
+            p {
+                display: inline;
+            }
+        }
+    
+    }
+}
+
+.instance-edit {
+    display: block;
+    margin: auto;
+    width: 50%;
+
+    .edit-field {
+        margin: .5rem 0;
+
+        label {
+            display: block;
+            width: 100%;
+            font-weight: bold;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: .2rem;
+            font-size: 1.2rem;
+        }
+    }
+
+    .button-group-wrapper {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+        text-align: right;
+
+        .button-group {
+            display: block;
+            width: auto;
+            margin-left: auto;
+        }
+    }
+}

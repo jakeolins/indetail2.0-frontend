@@ -14,22 +14,43 @@ const backend = axios.create({
 
 async function getAllExperts() {
     const response = await backend.get('/expert');
-    return response
+    return response;
+}
+
+async function getAllBrokers() {
+    const response = await backend.get('/broker');
+    return response;
 }
 
 async function getExpertDetail(id) {
     const response = await backend.get(`/expert/${id}`);
+    return response;
+}
+
+async function createBroker(brokerData) {
+    const response = await backend.post('/broker', brokerData);
+
     return response
 }
 
-async function createBroker({
-    name, twilioNumber,
-}) {
-    const response = await backend.post('/broker', {
-        name: name,
-        twilioNumber: twilioNumber
-    });
-    return response
+async function getBroker(id) {
+    return backend.get(`/broker/${id}`);
 }
 
-export {getAllExperts, getExpertDetail, createBroker}
+async function editBroker(brokerData) {
+    return backend.patch(`/broker/${brokerData.id}`);
+}
+
+async function deleteBroker(id) {
+    return backend.delete(`/broker/${id}`);
+}
+
+export {
+    getAllExperts, 
+    getExpertDetail, 
+    createBroker,
+    getAllBrokers,
+    getBroker,
+    editBroker,
+    deleteBroker,
+}
