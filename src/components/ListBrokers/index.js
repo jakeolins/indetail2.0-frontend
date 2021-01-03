@@ -57,6 +57,10 @@ class ListBrokers extends Component {
                             label: "Twilio Number",
                             propertyName: "twilioNumber"
                         },
+                        {
+                            label: "Welcome Message",
+                            propertyName: "welcomeLearnerMessage"
+                        },
                     ]}
                     rows={this.state.brokers}
                     createButton={{
