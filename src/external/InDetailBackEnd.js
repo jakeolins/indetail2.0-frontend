@@ -13,24 +13,31 @@ const backend = axios.create({
 });
 
 async function getAllExperts() {
-    const response = await backend.get('/expert');
-    return response;
+    return backend.get('/expert');
+}
+
+async function getExpert(id) {
+    return backend.get(`/expert/${id}`);
+}
+
+async function createExpert(expertData) {
+    return backend.post(`/expert`, expertData);
+}
+
+async function editExpert(expertData) {
+    return backend.patch(`/expert/${expertData.id}`, expertData);
+}
+
+async function deleteExpert(id) {
+    return backend.delete(`/expert/${id}`);
 }
 
 async function getAllBrokers() {
-    const response = await backend.get('/broker');
-    return response;
-}
-
-async function getExpertDetail(id) {
-    const response = await backend.get(`/expert/${id}`);
-    return response;
+    return backend.get('/broker');
 }
 
 async function createBroker(brokerData) {
-    const response = await backend.post('/broker', brokerData);
-
-    return response
+    return backend.post('/broker', brokerData);
 }
 
 async function getBroker(id) {
@@ -46,8 +53,11 @@ async function deleteBroker(id) {
 }
 
 export {
+    createExpert,
+    editExpert,
     getAllExperts, 
-    getExpertDetail, 
+    getExpert, 
+    deleteExpert,
     createBroker,
     getAllBrokers,
     getBroker,

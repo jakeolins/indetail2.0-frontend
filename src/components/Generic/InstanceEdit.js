@@ -65,17 +65,73 @@ function EditFields(props) {
 function EditField(props) {
     const field = props.field;
 
+    switch (field.type) {
+        case 'prompt-singular': 
+            return (
+                <SingularInstancePrompt
+                    field={field}
+                    error={props.error}
+                    instance={props.instance}
+                    onChange={props.onChange}
+                />
+            )
+        default: 
+            return (
+                <div className="edit-field">
+                    <label>{field.label}:</label>
+                    <p className="danger">{props.error}</p>
+                    <input 
+                        type={field.type} 
+                        onChange={e => props.onChange(e, field.propertyName, props.instance && props.instance._id ? props.instance._id : undefined)}
+                        value={props.instance[field.propertyName]}
+                    ></input>
+                </div>
+            );
+    }
+
+}
+
+function SingularInstancePrompt(props) {
+    const field = props.field;
+
     return (
         <div className="edit-field">
             <label>{field.label}:</label>
             <p className="danger">{props.error}</p>
-            <input 
-                type={field.type} 
-                onChange={e => props.onChange(e, field.propertyName, props.instance && props.instance._id ? props.instance._id : undefined)}
+            <select 
+                className="singular-instance-prompt"
                 value={props.instance[field.propertyName]}
-            ></input>
+                onChange={e => props.onChange(e, field.propertyName, props.instance && props.instance._id ? props.instance._id : undefined)}
+            >
+                <InstancePromptOptions
+                    field={props.field}
+                    instance={props.instance}
+                />
+            </select>
         </div>
     )
+}
+
+function InstancePromptOptions(props) {
+    const options = [];
+
+    options.push(
+        <option 
+            value=""
+            key={`${props.instance.id}-${props.field.propertyName}-option-empty`}    
+        >Nothing Selected</option>
+    );
+
+    for (const instance of props.field.promptInstances) {
+        options.push(
+            <option 
+                value={instance.id}
+                key={`${props.instance.id}-${props.field.propertyName}-option-${instance.id}`}    
+            >{instance.displayText}</option>
+        );       
+    }
+
+    return options;
 }
 
 export default InstanceEdit;

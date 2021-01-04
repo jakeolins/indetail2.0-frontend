@@ -193,6 +193,8 @@ button {
     background-color: var(--secondary-color);
     color: blue;
     text-decoration: underline;
+    margin: 0;
+    padding: 0;
 }
 
 .instance-view {
@@ -255,8 +257,17 @@ button {
             width: 100%;
             padding: .2rem;
             font-size: 1.2rem;
+        }    
+        
+        .singular-instance-prompt {
+            display: block;
+            width: 100%;
+            padding: .2rem;
+            font-size: 1.2rem;
         }
     }
+
+
 
     .button-group-wrapper {
         display: block;

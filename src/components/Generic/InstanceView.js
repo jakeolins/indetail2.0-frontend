@@ -80,12 +80,26 @@ function ViewFields(props) {
 function ViewField(props) {
     const field = props.field;
 
-    return (
-        <div className="view-field">
-            <div className="view-field-label"><label>{field.label}:</label></div>
-            <div className="view-field-value"><p>{props.instance[field.propertyName]}</p></div>
-        </div>
-    )
+    if (field.onClick) {
+        return (
+            <div className="view-field">
+                <div className="view-field-label"><label>{field.label}:</label></div>
+                <div className="view-field-value">
+                    <button className="button-link" onClick={() => field.onClick(field.propertyName)}>
+                        {props.instance[field.propertyName]}
+                    </button>
+                </div>
+            </div>
+        );
+    }
+    else {
+        return (
+            <div className="view-field">
+                <div className="view-field-label"><label>{field.label}:</label></div>
+                <div className="view-field-value"><p>{props.instance[field.propertyName]}</p></div>
+            </div>
+        );
+    }
 }
 
 export default InstanceView;
